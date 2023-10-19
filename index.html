@@ -1,19 +1,84 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
 
     <title>Paint</title>
 
     <!-- Підключення стилів -->
-    <link rel="stylesheet" href="./styles/main.css/"/>
+    <link rel="stylesheet" href="./styles/main.css">
   </head>
   <body>
-    Hello world!
-  </body>
+    <div class="container">
+      <!-- Панель інструментів -->
+      <section class="toolbar">
+        <ul class="options">
+          <div class="column">
+            <li class="option">
+              <span>Tool:</span>
+              <select name="tool-select" id="tool-select">
+                <option value="arrow" selected>Arrow</option>
+                <option value="text">Text</option>
+                <option value="eraser">Eraser</option>
+                <option value="markA">Mark A</option>
+                <option value="markB">Mark B</option>
+              </select>
+            </li>
+          </div>
+          <div class="column">
+            <li class="option">
+              <span>Color:</span>
+              <input id="color-input" type="color" name="colorInput"/>
+            </li>
+            <li class="option">
+              <span>Brash size:</span>
+              <input id="brash-size-input" type="text" name="brashSizeInput"/>
+            </li>
+          </div>
+          <div class="column">
+            <li class="option">
+              <span>Marks A:</span>
+              <select name="marksASelect" id="marks-a-select">
+                <option value="10">A1</option>
+                <option value="20">A2</option>
+                <option value="40">A3</option>
+              </select>
+            </li>
+            <li class="option">
+              <span>Marks B:</span>
+              <select name="marksBSelect" id="marks-b-select">
+                <option value="50">B1</option>
+                <option value="100">B2</option>
+                <option value="200">B3</option>
+              </select>
+            </li>
+          </div>
+          <div class="column">
+            <li class="option">
+              <span>OD image:</span>
+              <input id="od-file-input" type="file" name="odImageInput" acces="image/*"/>
+            </li>
+            <li class="option">
+              <span>OS image:</span>
+              <input id="os-file-input" type="file" name="osImageInput" acces="image/*"/>
+            </li>
+          </div>
+        </ul>
+      </section>
 
-  <!-- Підключення скриптів -->
-  <script src="./js/script.js"/>
-</html>               
+      <!-- Головне полотно -->
+      <section class"canvases">
+        <canvas id="laser_card_OD" height="500" width="500">
+        </canvas>
+        
+        <canvas id="laser_card_OS" height="500" width="500">
+        </canvas>
+      </section>
+    </div>
+
+    <!-- Підключення скриптів -->
+    <script src="./js/script.js"></script> 
+  </body>  
+</html>

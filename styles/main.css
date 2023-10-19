@@ -1,0 +1,60 @@
+/* Скидання стилів */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Стилі компонентів */
+body {
+	background-color: #696969;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.container {
+	min-width: 1030px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.toolbar {
+	border-radius: 10px;
+	background-color: white;
+	margin-bottom: 10px;
+}
+
+.options {
+	display: flex;
+	column-gap: 15px;
+	padding: 15px;
+	list-style-type: none;
+}
+
+.option {
+	display: flex;
+	align-items: center;
+	column-gap: 5px;
+}
+
+.canvases {
+	display: flex;
+}
+
+canvas {
+	background-color: white;
+	border-radius: 10px;
+	margin-right: 10px;
+}
+
+canvas:last-child {
+	margin-right: 0;
+}
