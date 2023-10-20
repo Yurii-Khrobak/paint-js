@@ -2,7 +2,7 @@
 const canvasOD = document.getElementById('laser_card_OD')
 const ctxOD = canvasOD.getContext('2d')
 
-let isDrawingOD = false
+let isEraseOD = false
 let tool = ''
 
 window.addEventListener('load', () => {
@@ -10,16 +10,6 @@ window.addEventListener('load', () => {
 	canvasOD.height = canvasOD.offsetHeight
 })
 
-const startDrawOD = () => {
-	isDrawingOD = true
-	ctxOD.beginPath()
-}
-
-//const drawingOD = e => {
-//	if (!isDrawingOD && tool !== 'arrow') return
-//	ctxOD.lineTo(e.offsetX, e.offsetY)
-//	ctxOD.stroke()
-//}
 
 const drawMarkAOD = e => {
 	if (tool !== 'markA') return
@@ -28,44 +18,49 @@ const drawMarkAOD = e => {
 	ctxOD.stroke()
 }
 
-const erase = () => {
+const eraseOD = e => {
+  isEraseOD = true
 	ctxOD.globalCompositeOperation = 'destination-out'
 	ctxOD.arc(e.offsetX, e.offsetY, 8, 0, Math.PI * 2, false)
 	ctxOD.fill()
 }
 
-//canvasOD.addEventListener('mousedown', startDrawOD)
-//canvasOD.addEventListener('mousemove', drawingOD)
-//canvasOD.addEventListener('mouseup', () => (isDrawingOD = false))
+canvasOD.addEventListener('mousedown', eraseOD)
+canvasOD.addEventListener('mousemove', eraseOD)
+canvasOD.addEventListener('mouseup', () => (isEraseOD = false))
 
 canvasOD.addEventListener('click', drawMarkAOD)
-canvasOD.addEventListener('click', erase)
 
 // Лазерна карта OS
 const canvasOS = document.getElementById('laser_card_OS')
 const ctxOS = canvasOS.getContext('2d')
 
-let isDrawingOS = false
+let isEraseOS = false
 
 window.addEventListener('load', () => {
 	canvasOS.width = canvasOS.offsetWidth
 	canvasOS.height = canvasOS.offsetHeight
 })
 
-const startDrawOS = () => {
-	isDrawingOS = true
+const drawMarkAOS = e => {
+	if (tool !== 'markA') return
 	ctxOS.beginPath()
-}
-
-const drawingOS = e => {
-	if (!isDrawingOS) return
-	ctxOS.lineTo(e.offsetX, e.offsetY)
+	ctxOS.arc(e.offsetX, e.offsetY, 50, 0, 2 * Math.PI, false)
 	ctxOS.stroke()
 }
 
-canvasOS.addEventListener('mousedown', startDrawOS)
-canvasOS.addEventListener('mousemove', drawingOS)
-canvasOS.addEventListener('mouseup', () => (isDrawingOS = false))
+const eraseOS = e => {
+  isEraseOS = true
+	ctxOS.globalCompositeOperation = 'destination-out'
+	ctxOS.arc(e.offsetX, e.offsetY, 8, 0, Math.PI * 2, false)
+	ctxOS.fill()
+}
+
+canvasOS.addEventListener('mousedown', eraseOS)
+canvasOS.addEventListener('mousemove', eraseOS)
+canvasOS.addEventListener('mouseup', () => (isEraseOS = false))
+
+canvasOS.addEventListener('click', drawMarkAOS)
 
 // Панель інструментів
 
