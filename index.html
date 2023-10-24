@@ -1,74 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-
-    <title>Paint</title>
-
-    <!-- Підключення стилів -->
-    <link rel="stylesheet" href="./styles/main.css">
-  </head>
-  <body>
-    <div class="container">
-      <!-- Панель інструментів -->
-      <section class="toolbar">
-        <ul class="options">
-          <div class="column">
-            <li class="option">
-              <span>Tool:</span>
-              <select name="tool-select" id="tool-select">
-              </select>
-            </li>
-            <li class="option">
-              <span>Erase radius:</span>
-              <input id="erase-radius-input" type="text" name="eraseRadiusInput" placeholder="Radius..."/>
-            </li>
-          </div>
-          <div class="column">
-            <li class="option">
-              <span>Color:</span>
-              <input id="color-input" type="color" name="colorInput"/>
-            </li>
-            <li class="option">
-              <span>Brash size:</span>
-              <input id="line-width-input" type="text" name="brashSizeInput" placeholder="Size..."/>
-            </li>
-          </div>
-          <div class="column">
-            <li class="option">
-              <span>Marks A:</span>
-              <select name="marksASelect" id="marks-a-select">
-              </select>
-            </li>
-            <li class="option">
-              <span>Marks B:</span>
-              <select name="marksBSelect" id="marks-b-select">
-              </select>
-            </li>
-          </div>
-          <div class="column">
-            <li class="option">
-              <span>Text:</span>
-              <input type="text" name="textInput" id="text-input" placeholder="Text into marks...."/>
-            </li>
-          </div>
-        </ul>
-      </section>
-
-      <!-- Головне полотно -->
-      <section class"canvases">
-        <canvas id="laser_card_OD" height="500" width="500">
-          <img src="./../img/eye_OD.gif" alt="bgOD" id="bg-OD">
-        </canvas>
-        
-        <canvas id="laser_card_OS" height="500" width="500">
-        </canvas>
-      </section>
-    </div>
-
-    <!-- Підключення скриптів -->
-    <script src="./js/script.js"></script> 
-  </body>  
-</html>
+<!DOCTYPE html> 
+ <html lang="en"> 
+   <head> 
+     <meta charset="UTF-8">  
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">     
+  
+     <title>Paint</title> 
+  
+     <!-- Підключення стилів --> 
+     <link rel="stylesheet" href="./styles/main.css"> 
+   </head> 
+   <body> 
+     <div class="container"> 
+       <!-- Панель інструментів --> 
+       <section class="toolbar"> 
+         <ul class="options"> 
+           <div class="column"> 
+             <li class="option"> 
+               <span>Tool:</span> 
+               <select name="tool-select" id="tool-select"> 
+               </select> 
+             </li> 
+             <li class="option"> 
+               <span>Erase radius:</span> 
+               <input id="erase-radius-input" type="text" name="eraseRadiusInput" placeholder="Radius..."/> 
+             </li> 
+           </div> 
+           <div class="column"> 
+             <li class="option"> 
+               <span>Mark color:</span> 
+               <input id="mark-color-input" type="color" name="markColorInput"/> 
+             </li> 
+             <li class="option"> 
+               <span>Brash size:</span> 
+               <input id="line-width-input" type="text" name="brashSizeInput" placeholder="Size..."/> 
+             </li> 
+           </div> 
+           <div class="column"> 
+             <li class="option"> 
+               <span>Marks A:</span> 
+               <select name="marksASelect" id="marks-a-select"> 
+               </select> 
+             </li> 
+             <li class="option"> 
+               <span>Marks B:</span> 
+               <select name="marksBSelect" id="marks-b-select"> 
+               </select> 
+             </li> 
+           </div> 
+           <div class="column"> 
+             <li class="option"> 
+               <span>Text:</span> 
+               <input type="text" name="textInput" id="text-input" placeholder="Text into marks...."/> 
+             </li> 
+             <li>
+               <span>Font size:</span>
+               <input type="text" name="fontSizeInput" id="font-size-input" placeholder="Font size..."/>
+             </li>
+           </div> 
+         </ul> 
+       </section> 
+  
+       <!-- Головне полотно --> 
+       <section class"canvases"> 
+         <canvas id="laser_card_OD" height="500" width="500"> 
+         </canvas> 
+  
+         <canvas id="laser_card_OS" height="500" width="500"> 
+         </canvas> 
+       </section> 
+     </div> 
+  
+     <!-- Підключення скриптів --> 
+     <script src="./js/script.js"></script>  
+   </body>   
+ </html>
