@@ -162,6 +162,14 @@ const changeMarkColor = () => {
 
 markColorInput.addEventListener('change', changeMarkColor)
 
+const textColorInput = document.getElementById('text-color-input')
+
+const changeTextColor = () => {
+  ctxOD.fillStyle = textColorInput.value
+  ctxOS.fillStyle = textColorInput.value	
+}
+
+textColorInput.addEventListener('change', changeTextColor)
 
 const lineWidthInput = document.getElementById('line-width-input')
 
