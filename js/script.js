@@ -14,7 +14,7 @@ const marks = [
 }]
 let radiuses = {erase: 5, a: 10, b: 50}
 let text = ''
-let font = '20px serif'
+let font = '15px serif'
 
 // Функції елементів
 const getContext = (canvas) => {
@@ -31,22 +31,33 @@ const erase = (e, ctx, isErase) => {
 
 const drawMarkA = (e, ctx) => {
   ctx.globalCompositeOperation = 'source-over'
+  ctx.textAlign = 'center'
   ctx.font = font
   if (tool !== 'mark-a') return
 	ctx.beginPath()
-	ctx.arc(e.offsetX, e.offsetY, radiuses.a, 0, 2 * Math.PI, false)
-	ctx.fillText(text, e.offsetX - radiuses.a/2, e.offsetY - radiuses.a/2, radiuses.a*2, radiuses.a*2)
+	ctx.arc(e.offsetX - radiuses.a/2, e.offsetY - radiuses.a/2, radiuses.a, 0, 2 * Math.PI, false)
+	ctx.fillText(text, e.offsetX - radiuses.a/2, e.offsetY - radiuses.a/2, radiuses.a)
 	ctx.stroke()
 }
 
 const drawMarkB = (e, ctx) => {
   ctx.globalCompositeOperation = 'source-over'
+  ctx.textAlign = 'center'
   ctx.font = font
   if (tool !== 'mark-b') return
 	ctx.beginPath()
-	ctx.arc(e.offsetX, e.offsetY, radiuses.b, 0, 2 * Math.PI, false)
-	ctx.fillText(text, e.offsetX - radiuses.a/2, e.offsetY - radiuses.a/2, radiuses.a*2, radiuses.a*2)
+	ctx.arc(e.offsetX - radiuses.b/2, e.offsetY - radiuses.b/2, radiuses.b, 0, 2 * Math.PI, false)
+	ctx.fillText(text, e.offsetX - radiuses.b/2, e.offsetY - radiuses.b/2, radiuses.b)
 	ctx.stroke()
+}
+
+const download = (canvas) => {
+  let canvasUrl = canvas.toDataURL("image/gif")
+  const createEl = document.createElement('a')
+  createEl.href = canvasUrl
+  createEl.download = "download-this-canvas"
+  createEl.click()
+  createEl.remove();
 }
 
 
@@ -181,6 +192,18 @@ const fontSizeInput = document.getElementById('font-size-input')
 
 fontSizeInput.addEventListener('change', () => {
     font = `${fontSizeInput.value}px serif`
+})
+
+const saveODInput = document.getElementById('save-OD')
+
+saveODInput.addEventListener('click', () => {
+  download(canvasOD)
+})
+
+const saveOSInput = document.getElementById('save-OS')
+
+saveOSInput.addEventListener('click', () => {
+  download(canvasOS)
 })
 
 
